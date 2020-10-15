@@ -1,12 +1,13 @@
 package test
 
 import (
+	_ "data/routers"
+	"github.com/goconvey/convey"
 	"net/http"
 	"net/http/httptest"
-	"testing"
-	"runtime"
 	"path/filepath"
-	_ "data/routers"
+	"runtime"
+	"testing"
 
 	"github.com/astaxie/beego"
 	. "github.com/smartystreets/goconvey/convey"
@@ -14,10 +15,9 @@ import (
 
 func init() {
 	_, file, _, _ := runtime.Caller(1)
-	apppath, _ := filepath.Abs(filepath.Dir(filepath.Join(file, ".." + string(filepath.Separator))))
+	apppath, _ := filepath.Abs(filepath.Dir(filepath.Join(file, ".."+string(filepath.Separator))))
 	beego.TestBeegoInit(apppath)
 }
-
 
 // TestBeego is a sample to run an endpoint test
 func TestBeego(t *testing.T) {
@@ -27,13 +27,20 @@ func TestBeego(t *testing.T) {
 
 	beego.Trace("testing", "TestBeego", "Code[%d]\n%s", w.Code, w.Body.String())
 
-	Convey("Subject: Test Station Endpoint\n", t, func() {
-	        Convey("Status Code Should Be 200", func() {
-	                So(w.Code, ShouldEqual, 200)
-	        })
-	        Convey("The Result Should Not Be Empty", func() {
-	                So(w.Body.Len(), ShouldBeGreaterThan, 0)
-	        })
+	convey.Convey("Subject: Test Station Endpoint\n", t, func() {
+		convey.Convey("Status Code Should Be 200", func() {
+			convey.So(w.Code, ShouldEqual, 200)
+		})
+		convey.Convey("The Result Should Not Be Empty", func() {
+			convey.So(w.Body.Len(), ShouldBeGreaterThan, 0)
+		})
 	})
 }
 
+func ShouldBeGreaterThan(actual interface{}, expected ...interface{}) string {
+
+}
+
+func ShouldEqual(actual interface{}, expected ...interface{}) string {
+
+}

@@ -2,7 +2,8 @@ package controllers
 
 import (
 	"data/models"
-	"github.com/beego"
+	"fmt"
+	"github.com/astaxie/beego"
 )
 
 type RegisterController struct {
@@ -10,17 +11,18 @@ type RegisterController struct {
 }
 
 //处理用户注册
-func (r *RegisterController) Post(){
+func (r *RegisterController) Post() {
 	var user models.User
 	err := r.ParseForm(&user)
-	if err != nil{
+	if err != nil {
 		r.Ctx.WriteString("抱歉，数据解析失败，请重试")
 		return
 	}
 	// 2、将解析到的数据保存到数据库中
-	_ ,err = user.AddUser()
-	if err!= nil {
-		r.Ctx.WriteString("抱歉，用户注册失败，请重试")
+	_, err = user.AddUser()
+	if err != nil {
+		r.Ctx.WriteString("抱歉，用户注册shibai，请重试")
+		fmt.Println(err.Error())
 		return
 	}
 	//3.将处理结果返回给浏览器客户端
