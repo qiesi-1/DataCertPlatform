@@ -1,9 +1,8 @@
 package models
 
 import (
-	"crypto/md5"
 	"data/db_mysql"
-	"encoding/hex"
+	"data/tools"
 	"fmt"
 )
 
@@ -16,10 +15,7 @@ type User struct {
 //将用户信息保存至数据库
 func (u User) AddUser() (int64, error) {
 	//脱敏
-	hashMd5 := md5.New()
-	hashMd5.Write([]byte(u.Password))
-	pwdBytes := hashMd5.Sum(nil)
-	u.Password = hex.EncodeToString(pwdBytes) //把脱敏后的密码重新传入数据库
+	 u.Password = tools.MD5HashString(u.Password)
 	rs, err := db_mysql.Db.Exec("insert into user(phone,password) values (?,?)",
 		u.Phone, u.Password)
 	//fmt.Println(u.Phone,u.Password,"输入框")
@@ -39,10 +35,8 @@ func (u User) AddUser() (int64, error) {
 }
 
 func (u User) QueryUser() (*User, error) {
-	hashMd5 := md5.New()
-	hashMd5.Write([]byte(u.Password))
-	pwdBytes := hashMd5.Sum(nil)
-	u.Password = hex.EncodeToString(pwdBytes)
+	//加密
+	u.Password = tools.MD5HashString(u.Password)
 	row := db_mysql.Db.QueryRow("select phone from user where phone = ? and password = ?",
 		u.Phone, u.Password)
 	//fmt.Println(u.Phone,u.Password,"输出框")
