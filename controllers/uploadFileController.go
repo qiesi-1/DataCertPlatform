@@ -13,13 +13,14 @@ type UploadFileController struct {
 }
 // 该post 方法用于处理用户在客户端提交的文件
 func (u *UploadFileController) Post() {
-
+	//1，解析客户端提交的数据和文件
 	phone := u.Ctx.Request.PostFormValue("phone")
 	title := u.Ctx.Request.PostFormValue("upload_title")
 	fmt.Println("电子数据标签", title)
 	file, header, err := u.GetFile("file")
-	if err != nil {
-
+	if err != nil {//解析客户端提交的文件出错
+		fmt.Println(err.Error())
+		u.Ctx.WriteString("sorry，文件解析失败")
 		return
 	}
 	defer file.Close()
@@ -32,11 +33,12 @@ func (u *UploadFileController) Post() {
 		return
 	}
 	//计算文件SHA256值
-	tools.SHA256HashReader(file)
-
+	fileHash,err:= tools.SHA256HashReader(file)
+	fmt.Println(fileHash)
 	//先查询用户ID
 	user1,err := models.User{Phone:phone}.QueryUserByPhone()
 	if err != nil{
+		fmt.Println("查询用户：",err.Error())
 		u.Ctx.WriteString("抱歉，电子数据认证失败，请稍后再试：")
 		return
 	}
@@ -49,15 +51,17 @@ func (u *UploadFileController) Post() {
 		return
 	}
 	recode := models.UploadRecord{
-		UserId:user1.Id,
-		FileName:header.Filename,
-		FileSize:header.Size,
-		FileCert:md5String,
-		FileTitle:title,
-		CertTime:time.Now().Unix(),
+		UserId:		user1.Id,
+		FileName:	header.Filename,
+		FileSize:	header.Size,
+		FileCert:	md5String,
+		FileTitle:	title,
+		CertTime:	time.Now().Format("2006-01-02 15:04:05"),
 	}
+	//保存认证数据到数据库中
 	_,err = recode.SaveRecord()
 	if err!=nil {
+		fmt.Println("baocunrenzheng",err.Error())
 		u.Ctx.WriteString("抱歉，电子数据认证保存失败，请稍后再试‘")
 		return
 	}
@@ -67,9 +71,8 @@ func (u *UploadFileController) Post() {
 		u.Ctx.WriteString("抱歉，获取电子数据列表失败")
 		return
 	}
-	u.Ctx.WriteString("恭喜，已接受到上传文件")
 	u.Data["Records"] = recodes
-	u.TplName = "list_code.html"
+	u.TplName = "list_record.html"
 }
 
 //

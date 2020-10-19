@@ -15,7 +15,7 @@ type User struct {
 //将用户信息保存至数据库
 func (u User) AddUser() (int64, error) {
 	//脱敏
-	 u.Password = tools.MD5HashString(u.Password)
+	 u.Password = tools.MD5HashString(u.Password)//把脱敏的密码的MD5值重新赋值为密码进行储存
 	rs, err := db_mysql.Db.Exec("insert into user(phone,password) values (?,?)",
 		u.Phone, u.Password)
 	//fmt.Println(u.Phone,u.Password,"输入框")
@@ -24,7 +24,6 @@ func (u User) AddUser() (int64, error) {
 		return -1, err
 		fmt.Println(err.Error())
 	}
-
 	id, err := rs.RowsAffected() //id 代表此次操作影响的行数，为int64类型
 	if err != nil {
 		//保存数据遇到错误
@@ -35,11 +34,13 @@ func (u User) AddUser() (int64, error) {
 }
 
 func (u User) QueryUser() (*User, error) {
-	//加密
+	//将脱敏的密码的MD5值重新赋值为密码进行储存
 	u.Password = tools.MD5HashString(u.Password)
+
 	row := db_mysql.Db.QueryRow("select phone from user where phone = ? and password = ?",
 		u.Phone, u.Password)
 	//fmt.Println(u.Phone,u.Password,"输出框")
+
 	err := row.Scan(&u.Phone)
 	if err != nil {
 		return nil, err
@@ -49,10 +50,11 @@ func (u User) QueryUser() (*User, error) {
 func (u User) QueryUserByPhone()(*User,error){
 	row := db_mysql.Db.QueryRow("select id from user where phone = ?",
 		u.Phone)
-	err := row.Scan(&u.Id)
+	var user User
+	err := row.Scan(&user.Id)
 	if err != nil{
 		return nil,err
 	}
-	return &u,nil
+	return &user,nil
 
 }

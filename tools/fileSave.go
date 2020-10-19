@@ -11,7 +11,9 @@ func SaveFile(fileName string,file io.Reader) (int64, error)  {
 	if err != nil {
 		return -1,err
 	}
+
 	length, err := io.Copy(saveFile, file)
+
 	if err != nil {
 		return -1,err
 	}

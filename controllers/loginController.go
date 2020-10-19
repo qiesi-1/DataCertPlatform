@@ -20,7 +20,6 @@ func (l *Login) Post() {
 	var user models.User
 	err := l.ParseForm(&user)
 	if err != nil {
-
 		l.Ctx.WriteString("用户登录信息解析失败，请重试")
 		return
 	}

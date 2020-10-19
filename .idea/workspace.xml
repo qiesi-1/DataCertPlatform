@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51ae2961-ded0-4aa1-a013-fc5ff2cc517c" name="Default Changelist" comment="File operation">
-      <change afterPath="$PROJECT_DIR$/tools/Hash.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/fileSave.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/app-5e0455372927b43eec8b.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/common-5e0455372927b43eec8b.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/loginController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/loginController.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/uploadFileController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/uploadFileController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/UploadRecord.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/UploadRecord.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/User.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/fileSave.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/fileSave.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/list_record.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/list_record.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,12 +62,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/css" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Asus-\go\src\data\static\js" />
       <recent name="C:\Users\Asus-\go\src\data\static\css" />
+      <recent name="C:\Users\Asus-\go\src\data\static\js" />
     </key>
   </component>
   <component name="RunManager" selected="Go Build.go build data">
@@ -111,6 +116,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="File operation" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="233" y="3" key="#Notifications" timestamp="1603069548320">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="3" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1603069548320" />
     <state x="376" y="150" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602410833849">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -123,26 +132,26 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="263" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1602837521677" />
-    <state x="421" y="99" key="FileChooserDialogImpl" timestamp="1602830169336">
+    <state x="421" y="99" key="FileChooserDialogImpl" timestamp="1603076905256">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1602830169336" />
-    <state width="1237" height="183" key="GridCell.Tab.0.bottom" timestamp="1602837193131">
+    <state x="421" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1603076905256" />
+    <state width="1237" height="89" key="GridCell.Tab.0.bottom" timestamp="1603077834248">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="183" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1602837193131" />
-    <state width="1237" height="183" key="GridCell.Tab.0.center" timestamp="1602837193131">
+    <state width="1237" height="89" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1603077834248" />
+    <state width="1237" height="89" key="GridCell.Tab.0.center" timestamp="1603077834248">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="183" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1602837193131" />
-    <state width="1237" height="183" key="GridCell.Tab.0.left" timestamp="1602837193131">
+    <state width="1237" height="89" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1603077834248" />
+    <state width="1237" height="89" key="GridCell.Tab.0.left" timestamp="1603077834248">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="183" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1602837193131" />
-    <state width="1237" height="183" key="GridCell.Tab.0.right" timestamp="1602837193131">
+    <state width="1237" height="89" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1603077834248" />
+    <state width="1237" height="89" key="GridCell.Tab.0.right" timestamp="1603077834248">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="183" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1602837193131" />
+    <state width="1237" height="89" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1603077834248" />
     <state x="233" y="65" key="Vcs.Push.Dialog.v2" timestamp="1602759349490">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
