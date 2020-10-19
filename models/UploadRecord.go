@@ -1,6 +1,8 @@
 package models
 
-import "data/db_mysql"
+import (
+	"data/db_mysql"
+)
 
 type UploadRecord struct {
 	Id        int
@@ -10,6 +12,7 @@ type UploadRecord struct {
 	FileCert  string
 	FileTitle string
 	CertTime  string
+	CertTimeFormat string
 }
 //把一条认证数据保存到数据库表中
 func (u UploadRecord) SaveRecord() (int64,error){
@@ -35,12 +38,14 @@ func QueryRecordsByUserId(userId int)([]UploadRecord,error)  {
 	records := make([]UploadRecord,0)//容器
 	for rs.Next() {
 		var record UploadRecord
-		err := rs.Scan(&record.Id,&record.UserId,&record.FileName,&record.FileSize,&record.FileCert,&record.FileTitle,&record.CertTime)
+		err := rs.Scan(&record.Id,&record.UserId,&record.FileName,&record.FileSize,&record.FileCert,&record.FileTitle,&record.CertTimeFormat)
 		if err!=nil{
 			return nil,err
 		}
+		//tStr :=tools.TimeFormat(record.CertTime,tools.TIME_FORMAT_THREE)
+		//record.CertTimeFormat = tStr
 		records = append(records,record)
 	}
-	return records,nil
 
+	return records,nil
 }

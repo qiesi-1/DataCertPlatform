@@ -5,6 +5,7 @@ import (
 	"data/tools"
 	"fmt"
 	"github.com/astaxie/beego"
+	"os"
 	"time"
 )
 //该结构体用于处理文件上传
@@ -45,7 +46,8 @@ func (u *UploadFileController) Post() {
 
 	//把上传的文件作为记录保存到数据库中
 	// ① 计算MD5 值
-	md5String,err :=tools.MD5HashReader(file)
+	saveFile ,err:= os.Open(saveFilePath)
+	md5String,err :=tools.MD5HashReader(saveFile)
 	if err != nil {
 		u.Ctx.WriteString("抱歉，电子数据认证失败")
 		return
@@ -61,7 +63,7 @@ func (u *UploadFileController) Post() {
 	//保存认证数据到数据库中
 	_,err = recode.SaveRecord()
 	if err!=nil {
-		fmt.Println("baocunrenzheng",err.Error())
+		fmt.Println("保存认证",err.Error())
 		u.Ctx.WriteString("抱歉，电子数据认证保存失败，请稍后再试‘")
 		return
 	}
