@@ -17,10 +17,10 @@ func (u *UploadFileController) Post() {
 	//1，解析客户端提交的数据和文件
 	phone := u.Ctx.Request.PostFormValue("phone")
 	title := u.Ctx.Request.PostFormValue("upload_title")
-	fmt.Println("电子数据标签", title)
+	//fmt.Println("电子数据标签", title)
 	file, header, err := u.GetFile("file")
 	if err != nil {//解析客户端提交的文件出错
-		fmt.Println(err.Error())
+		//fmt.Println(err.Error())
 		u.Ctx.WriteString("sorry，文件解析失败")
 		return
 	}
@@ -39,7 +39,7 @@ func (u *UploadFileController) Post() {
 	//先查询用户ID
 	user1,err := models.User{Phone:phone}.QueryUserByPhone()
 	if err != nil{
-		fmt.Println("查询用户：",err.Error())
+		//fmt.Println("查询用户：",err.Error())
 		u.Ctx.WriteString("抱歉，电子数据认证失败，请稍后再试：")
 		return
 	}
@@ -63,7 +63,7 @@ func (u *UploadFileController) Post() {
 	//保存认证数据到数据库中
 	_,err = recode.SaveRecord()
 	if err!=nil {
-		fmt.Println("保存认证",err.Error())
+		//fmt.Println("保存认证",err.Error())
 		u.Ctx.WriteString("抱歉，电子数据认证保存失败，请稍后再试‘")
 		return
 	}

@@ -1,6 +1,10 @@
 package blockchain
 
-import "time"
+import (
+	"bytes"
+	"data/tools"
+	"time"
+)
 
 //定义区块结果体
 type Block struct {
@@ -21,7 +25,23 @@ func NewBlock(height int64,prevHash []byte,data []byte) (Block) {
 		Data:      data,
 		Version:   "0X01",
 	}
-	//block.Hash =
+
+	//1.将block结构体数据转换成【】byte类型
+	heightBytes,_ := tools.Int64ToByte(block.Height)
+	timeStampBytes,_ := tools.Int64ToByte(block.TimeStamp)
+	versionBytes := tools.StringToBytes(block.Version)
+
+	var blockBytes  []byte
+	//bytes.Join 拼接
+	bytes.Join([][]byte{
+		heightBytes,
+		timeStampBytes,
+		block.PrevHash,
+		block.Data,
+		versionBytes,
+	},[]byte{})
+	// 调用hash计算，对区块进行sha256计算
+	block.Hash = tools.SHA256HashBlock(blockBytes)
 	return block
 }
 
