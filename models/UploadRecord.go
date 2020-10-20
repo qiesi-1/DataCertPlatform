@@ -38,7 +38,7 @@ func QueryRecordsByUserId(userId int)([]UploadRecord,error)  {
 	records := make([]UploadRecord,0)//容器
 	for rs.Next() {
 		var record UploadRecord
-		err := rs.Scan(&record.Id,&record.UserId,&record.FileName,&record.FileSize,&record.FileCert,&record.FileTitle,&record.CertTimeFormat)
+		err := rs.Scan(&record.Id,&record.UserId,&record.FileName,&record.FileSize,&record.FileCert,&record.FileTitle,&record.CertTime)
 		if err!=nil{
 			return nil,err
 		}

@@ -12,3 +12,6 @@ func (c *MainController) Get() {
 	c.TplName = "register.html"
 }
 
+func (u *UploadFileController)Get()  {
+	u.TplName = "home.html"
+}

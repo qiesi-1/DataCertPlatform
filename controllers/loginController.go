@@ -25,7 +25,6 @@ func (l *Login) Post() {
 	}
 	// 2、根据解析到的数据，执行数据库查询操作
 	u, err := user.QueryUser()
-
 	//3、判断数据库的查询结果
 	if err != nil {
 		//
