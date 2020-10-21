@@ -14,6 +14,7 @@ type Block struct {
 	Data 		[]byte//数据字段
 	Hash 		[]byte//当前区块hash值
 	Version 	string//版本号
+	Nonce 		int64 //区块对应的nonce值
 }
 
 //创建一个新区块
@@ -31,7 +32,7 @@ func NewBlock(height int64,prevHash []byte,data []byte) (Block) {
 	timeStampBytes,_ := tools.Int64ToByte(block.TimeStamp)
 	versionBytes := tools.StringToBytes(block.Version)
 
-	var blockBytes  []byte
+	var blockBytes []byte
 	//bytes.Join 拼接
 	bytes.Join([][]byte{
 		heightBytes,
@@ -40,8 +41,10 @@ func NewBlock(height int64,prevHash []byte,data []byte) (Block) {
 		block.Data,
 		versionBytes,
 	},[]byte{})
+
 	// 调用hash计算，对区块进行sha256计算
 	block.Hash = tools.SHA256HashBlock(blockBytes)
+	//挖矿竞争，获得记账权
 	return block
 }
 
