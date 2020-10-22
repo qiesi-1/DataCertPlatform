@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51ae2961-ded0-4aa1-a013-fc5ff2cc517c" name="Default Changelist" comment="File operation">
-      <change afterPath="$PROJECT_DIR$/blockchain/Pow.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blockchain/Block.go" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain/Block.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain/Pow.go" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain/Pow.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +72,13 @@
       <kind value="FILE" />
       <method v="2" />
     </configuration>
+    <configuration name="go build Pow.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="DataCertPlatform" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/blockchain/Pow.go" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build data" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="DataCertPlatform" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -97,6 +105,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build data" />
+        <item itemvalue="Go Build.go build Pow.go" />
         <item itemvalue="Go Build.go build uploadFileController.go" />
       </list>
     </recent_temporary>
@@ -121,6 +130,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="376" y="150" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1602410833849" />
+    <state x="836" y="23" key="#com.intellij.ide.util.MemberChooser" timestamp="1603328819022">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="836" y="23" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1603328819022" />
+    <state x="715" y="3" key="#go_build_Pow.go" timestamp="1603351117425">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="715" y="3" key="#go_build_Pow.go/0.0.1280.680@0.0.1280.680" timestamp="1603351117425" />
     <state x="358" y="2" key="#go_build_uploadFileController.go" timestamp="1602815330608">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -133,22 +150,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1603248884193" />
-    <state width="458" height="169" key="GridCell.Tab.0.bottom" timestamp="1603181683531">
+    <state width="458" height="200" key="GridCell.Tab.0.bottom" timestamp="1603351418271">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="458" height="169" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1603181683531" />
-    <state width="458" height="169" key="GridCell.Tab.0.center" timestamp="1603181683531">
+    <state width="458" height="200" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1603351418271" />
+    <state width="458" height="200" key="GridCell.Tab.0.center" timestamp="1603351418271">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="458" height="169" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1603181683531" />
-    <state width="458" height="169" key="GridCell.Tab.0.left" timestamp="1603181683531">
+    <state width="458" height="200" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1603351418271" />
+    <state width="458" height="200" key="GridCell.Tab.0.left" timestamp="1603351418271">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="458" height="169" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1603181683531" />
-    <state width="458" height="169" key="GridCell.Tab.0.right" timestamp="1603181683531">
+    <state width="458" height="200" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1603351418271" />
+    <state width="458" height="200" key="GridCell.Tab.0.right" timestamp="1603351418271">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="458" height="169" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1603181683531" />
+    <state width="458" height="200" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1603351418271" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1603111123547">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

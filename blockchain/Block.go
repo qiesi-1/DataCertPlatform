@@ -2,7 +2,7 @@ package blockchain
 
 import (
 	"bytes"
-	"data/tools"
+	"encoding/gob"
 	"time"
 )
 
@@ -26,24 +26,29 @@ func NewBlock(height int64,prevHash []byte,data []byte) (Block) {
 		Data:      data,
 		Version:   "0X01",
 	}
-
+	//通过pow算法寻找nonce值
+	pow :=NewPoW(block)
+	hash,nonce := pow.Run()
+	block.Nonce = nonce
+	block.Hash = hash
 	//1.将block结构体数据转换成【】byte类型
-	heightBytes,_ := tools.Int64ToByte(block.Height)
-	timeStampBytes,_ := tools.Int64ToByte(block.TimeStamp)
-	versionBytes := tools.StringToBytes(block.Version)
-
-	var blockBytes []byte
-	//bytes.Join 拼接
-	bytes.Join([][]byte{
-		heightBytes,
-		timeStampBytes,
-		block.PrevHash,
-		block.Data,
-		versionBytes,
-	},[]byte{})
-
-	// 调用hash计算，对区块进行sha256计算
-	block.Hash = tools.SHA256HashBlock(blockBytes)
+	//heightBytes,_ := tools.Int64ToByte(block.Height)
+	//timeStampBytes,_ := tools.Int64ToByte(block.TimeStamp)
+	//versionBytes := tools.StringToBytes(block.Version)
+	//nonceBytes,_ := tools.Int64ToByte(block.Nonce)
+	//var blockBytes []byte
+	////bytes.Join 拼接
+	//bytes.Join([][]byte{
+	//	heightBytes,
+	//	timeStampBytes,
+	//	block.PrevHash,
+	//	block.Data,
+	//	versionBytes,
+	//	nonceBytes,
+	//},[]byte{})
+	//
+	//// 调用hash计算，对区块进行sha256计算
+	//block.Hash = tools.SHA256HashBlock(blockBytes)
 	//挖矿竞争，获得记账权
 	return block
 }
@@ -52,4 +57,24 @@ func NewBlock(height int64,prevHash []byte,data []byte) (Block) {
 func CreateGenesisBlock()Block  {
 	genesisBlock := NewBlock(0,[]byte{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},nil)
     return genesisBlock
+}
+
+//对区块进行序列化
+func (b Block) Serialize()([]byte) {
+
+	buff :=new(bytes.Buffer)  //缓冲区
+	encoder := gob.NewEncoder(buff)
+	encoder.Encode(b)//将区块b放入到序列化编码器
+	return buff.Bytes()
+}
+
+//区块反序列化
+func DeSerialize(data []byte) (*Block,error) {
+	var block Block
+	decoder := gob.NewDecoder(bytes.NewReader(data))
+	err := decoder.Decode(&block)
+	if err != nil{
+		return nil,err
+	}
+	return &block,nil
 }
