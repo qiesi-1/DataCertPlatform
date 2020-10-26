@@ -28,6 +28,8 @@ func NewBlock(height int64,prevHash []byte,data []byte) (Block) {
 	}
 	//通过pow算法寻找nonce值
 	pow :=NewPoW(block)
+
+	
 	hash,nonce := pow.Run()
 	block.Nonce = nonce
 	block.Hash = hash

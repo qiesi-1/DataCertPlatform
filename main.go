@@ -23,7 +23,7 @@ func main() {
 	fmt.Println("json序列化后的block：",string(blockJson))
 	blockXml,_ := xml.Marshal(block0)
 	fmt.Println("json序列化后的block：",string(blockXml))
-
+// 终止后续执行
 	return
 
 	//链接数据库
