@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51ae2961-ded0-4aa1-a013-fc5ff2cc517c" name="Default Changelist" comment="File operation">
+      <change afterPath="$PROJECT_DIR$/blockchain/blockchain.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blockchain/Block.go" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain/Block.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,10 +55,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../my open" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Asus-\go\src\github.com" />
       <recent name="C:\Users\Asus-\go\src\data\static\css" />
       <recent name="C:\Users\Asus-\go\src\data\static\js" />
     </key>
@@ -144,26 +146,26 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="263" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1602837521677" />
-    <state x="421" y="99" key="FileChooserDialogImpl" timestamp="1603422942266">
+    <state x="421" y="99" key="FileChooserDialogImpl" timestamp="1603763035393">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1603422942266" />
-    <state width="458" height="200" key="GridCell.Tab.0.bottom" timestamp="1603353207869">
+    <state x="421" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1603763035393" />
+    <state width="1237" height="202" key="GridCell.Tab.0.bottom" timestamp="1603787507693">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="458" height="200" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1603353207869" />
-    <state width="458" height="200" key="GridCell.Tab.0.center" timestamp="1603353207869">
+    <state width="1237" height="202" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1603787507693" />
+    <state width="1237" height="202" key="GridCell.Tab.0.center" timestamp="1603787507693">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="458" height="200" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1603353207869" />
-    <state width="458" height="200" key="GridCell.Tab.0.left" timestamp="1603353207869">
+    <state width="1237" height="202" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1603787507693" />
+    <state width="1237" height="202" key="GridCell.Tab.0.left" timestamp="1603787507693">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="458" height="200" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1603353207869" />
-    <state width="458" height="200" key="GridCell.Tab.0.right" timestamp="1603353207869">
+    <state width="1237" height="202" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1603787507693" />
+    <state width="1237" height="202" key="GridCell.Tab.0.right" timestamp="1603787507693">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="458" height="200" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1603353207869" />
+    <state width="1237" height="202" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1603787507693" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1603111123547">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
