@@ -1,19 +1,27 @@
 package main
 
 import (
-	"data/blockchain"
 	"data/db_mysql"
 	_ "data/routers"
-	"fmt"
 	"github.com/astaxie/beego"
 )
 
 func main() {
-	//1.创世区块
-
-	bc := blockchain.NewBlockChian()
-	fmt.Printf("创世区块的hash:%x\n",bc.LastHash)
-	return
+	//bc := blockchain.NewBlockChian()
+	//bc.SaveData([]byte("区块链C190604"))
+	//blocks,err := bc.QueryAllBlocks()
+	//if err!= nil {
+	//	fmt.Println(err.Error())
+	//	return
+	//}
+	////blocks是一个切片
+	//for index,block := range blocks {
+	//	fmt.Printf("%d个区块%d高度%xhash%x\n",index,block.Height,block.PrevHash)
+	//}
+	//
+	//return
+	//先准备一条区块链
+	//blockchain.NewBlockChian()
 	//链接数据库
 	db_mysql.Connect()
 	//静态资源文件路径映射

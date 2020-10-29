@@ -67,6 +67,9 @@ func (u *UploadFileController) Post() {
 		u.Ctx.WriteString("抱歉，电子数据认证保存失败，请稍后再试‘")
 		return
 	}
+	//将用户上传文件的md5和sha256保存到区块链上，即上链
+	//blockchain.CHAIN.SaveData([]byte(md5String))
+
 	//上传文件保存到数据库 数据列表
 	recodes,err := models.QueryRecordsByUserId(user1.Id)
 	if err != nil{

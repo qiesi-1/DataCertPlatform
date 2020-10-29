@@ -50,6 +50,7 @@ func (u User) QueryUser() (*User, error) {
 func (u User) QueryUserByPhone()(*User,error){
 	row := db_mysql.Db.QueryRow("select id from user where phone = ?",
 		u.Phone)
+	fmt.Println(row)
 	var user User
 	err := row.Scan(&user.Id)
 	if err != nil{
