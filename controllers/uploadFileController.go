@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"data/blockchain"
 	"data/models"
 	"data/tools"
 	"fmt"
@@ -67,9 +68,30 @@ func (u *UploadFileController) Post() {
 		u.Ctx.WriteString("抱歉，电子数据认证保存失败，请稍后再试‘")
 		return
 	}
+	user := models.User{
+		Phone:phone,
+	}
+	user,_ = user.QueryUserByPhone()
 	//将用户上传文件的md5和sha256保存到区块链上，即上链
-	//blockchain.CHAIN.SaveData([]byte(md5String))
-
+	certRecord :=models.CertRecord{
+		CertId:   []byte(md5String),
+		CertHash: []byte(fileHash),
+		CertName: user.Name,
+		Phone:    user.Phone,
+		CertCard: user.Card,
+		FileName: header.Filename,
+		FileSize: header.Size,
+		CertTime: time.Now().Unix(),
+	}
+	//序列化
+	certBytes,_ := 
+	block, err := blockchain.CHAIN.SaveData([]byte(md5String))
+	fmt.Println("区块高度",block.Height)
+	if err != nil {
+		fmt.Println(err.Error())
+		u.Ctx.WriteString("数据上链错误："+err.Error())
+		return
+	}
 	//上传文件保存到数据库 数据列表
 	recodes,err := models.QueryRecordsByUserId(user1.Id)
 	if err != nil{

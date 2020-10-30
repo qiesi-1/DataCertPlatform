@@ -3,6 +3,7 @@ package controllers
 import (
 	"data/models"
 	"github.com/astaxie/beego"
+	"strings"
 )
 
 type Login struct {
@@ -29,6 +30,12 @@ func (l *Login) Post() {
 	if err != nil {
 		//
 		l.Ctx.WriteString("用户登录失败，请重试")
+		return
+	}
+	//3.1增加 判断用户是否实名认证，若无，跳转认证页面
+	if strings.TrimSpace(u.Name) == ""||strings.TrimSpace(u.Card) =="" {//两者有其一为非实名
+		l.Data["Phnoe"] = user.Phone
+		l.TplName = "user_kyc.html"
 		return
 	}
 	//4、根据查询结果返回客户端相应信息或页面跳转
