@@ -230,10 +230,9 @@ func (bc BlockChain)QueryBloockByCertId(cert_id string) (*Block,error) {
 				break
 			}
 			eachBig.SetBytes(eachBlock.PrevHash)
-			if eachBig==e{
-
+			if eachBig.Cmp(zeroBig)==0{//到创世区块了
+				break
 			}
-
 			eachHash = eachBlock.PrevHash
 		}
 		return nil

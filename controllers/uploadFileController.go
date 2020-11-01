@@ -25,6 +25,7 @@ func (u *UploadFileController) Post() {
 		u.Ctx.WriteString("sorry，文件解析失败")
 		return
 	}
+
 	defer file.Close()
 
 	//使用io包中方法保存文件
@@ -34,13 +35,15 @@ func (u *UploadFileController) Post() {
 		u.Ctx.WriteString("抱歉，数据文件认证失败，请重试")
 		return
 	}
+
 	//计算文件SHA256值
 	fileHash,err:= tools.SHA256HashReader(file)
-	fmt.Println(fileHash)
+	//fmt.Println(fileHash)
+
 	//先查询用户ID
 	user1,err := models.User{Phone:phone}.QueryUserByPhone()
 	if err != nil{
-		//fmt.Println("查询用户：",err.Error())
+		fmt.Println("查询用户：",err.Error())
 		u.Ctx.WriteString("抱歉，电子数据认证失败，请稍后再试：")
 		return
 	}
@@ -64,11 +67,11 @@ func (u *UploadFileController) Post() {
 	//保存认证数据到数据库中
 	_,err = recode.SaveRecord()
 	if err!=nil {
-		//fmt.Println("保存认证",err.Error())
+		fmt.Println("保存认证",err.Error())
 		u.Ctx.WriteString("抱歉，电子数据认证保存失败，请稍后再试‘")
 		return
 	}
-	user := models.User{
+	user := &models.User{
 		Phone:phone,
 	}
 	user,_ = user.QueryUserByPhone()
@@ -84,8 +87,8 @@ func (u *UploadFileController) Post() {
 		CertTime: time.Now().Unix(),
 	}
 	//序列化
-	certBytes,_ := 
-	block, err := blockchain.CHAIN.SaveData([]byte(md5String))
+	certBytes,_ := certRecord.Serialize()
+	block, err := blockchain.CHAIN.SaveData(certBytes)
 	fmt.Println("区块高度",block.Height)
 	if err != nil {
 		fmt.Println(err.Error())
