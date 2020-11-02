@@ -2,14 +2,16 @@ package blockchain
 
 import (
 	"errors"
+	"fmt"
 	"github.com/bolt"
 	"math/big"
 )
 
-var CHAIN  *BlockChain
 const BLOCKCHAIN  = "blockchain.db"
 const BLOCK_NAME  = "blocks"
 const LAST_HASH = "lasthash"
+var CHAIN  *BlockChain
+
 
 //区块链结构体的定义，代表的是一条区块链
 type BlockChain struct {
@@ -19,7 +21,7 @@ type BlockChain struct {
 
 //创建一条区块链
 
-func NewBlockChian() BlockChain {
+func NewBlockChian() *BlockChain {
 	var bc *BlockChain
 	//1.先打开文件
 	db,err :=bolt.Open(BLOCKCHAIN,0600,nil)
@@ -79,7 +81,7 @@ func NewBlockChian() BlockChain {
 	//	return nil
 	//})
 	CHAIN = bc
-	return *bc
+	return bc
 }
 
 
@@ -101,11 +103,12 @@ func (bc BlockChain) QueryAllBlocks()([]*Block,error){
 		eachBig := new(big.Int)
 		zeroBig := big.NewInt(0)//默认值零的大整数
 		for{
-
 			//根据区块hash值获取对应区块
 			eachBlockBytes :=bucket.Get(eachHash)
+			fmt.Println("对应区块hash",eachBlockBytes)
 			//反序列化操作
 			eachBlock,_:= DeSerialize(eachBlockBytes)
+			//fmt.Println(eachBlock)
 			//将遍历到的每一个区块放到容器里
 			blocks = append(blocks,eachBlock)
 			eachBig.SetBytes(eachBlock.PrevHash)
@@ -114,6 +117,8 @@ func (bc BlockChain) QueryAllBlocks()([]*Block,error){
 			}
 			//不满足条件，未找到创世区块
 			eachHash = eachBlock.PrevHash
+			fmt.Println(eachHash)
+			break
 		}
 		return  nil
 	})

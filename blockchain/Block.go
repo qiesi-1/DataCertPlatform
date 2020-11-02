@@ -57,8 +57,8 @@ func NewBlock(height int64,prevHash []byte,data []byte) (Block) {
 
 //创建创世区块
 func CreateGenesisBlock()Block  {
-	genesisBlock := NewBlock(0,[]byte{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},nil)
-    return genesisBlock
+	genesisBlock := NewBlock(0, []byte{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, nil)
+	return genesisBlock
 }
 
 //对区块进行序列化
