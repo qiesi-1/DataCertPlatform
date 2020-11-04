@@ -8,7 +8,9 @@ import (
 //该结构体用于定义数据保存的信息
 type CertRecord struct {
 	CertId []byte//认证号，md5值
+	CertHex string
 	CertHash []byte//存正文件sha256值
+
 	CertName string // 认证人的姓名
 	Phone string //联系人手机号
 	CertCard string //身份证

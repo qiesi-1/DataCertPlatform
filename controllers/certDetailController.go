@@ -15,6 +15,7 @@ type CertDetailController struct {
 func (c *CertDetailController)Get()  {
 	//解析和接受前端页面传递的CertId
 	cert_id := c.GetString("cert_id")
+
 	//查询区块数据
 	block,err :=blockchain.CHAIN.QueryBloockByCertId(cert_id)
 	if err != nil{

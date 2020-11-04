@@ -168,7 +168,7 @@
     <div>
         <div style="word-break:break-all;word-wrap:break-word;" class="page cert-cover theme-3">
             <h2 class="cert-cover-title">电子数据认证书</h2>
-            <h3 class="cert-cover-bq-number">认证号：<span ref="common.attestation_no" class="xfield">{{.CertId}}</span>
+            <h3 class="cert-cover-bq-number">认证号：<span ref="common.attestation_no" class="xfield">{{.CertRecord.CertId}}</span>
             </h3>
             <div class="cert-cover-content">
                 <table>
@@ -191,15 +191,15 @@
                     </tr>
                     <tr>
                         <td>文件名称：</td>
-                        <td><span ref="att.fileName" class="xfield">{{.FileName}}</span>&nbsp;</td>
+                        <td><span ref="att.fileName" class="xfield">{{.CertRecord.FileName}}</span>&nbsp;</td>
                     </tr>
                     <tr>
                         <td>文件大小：</td>
-                        <td><span ref="att.fileSize" class="xfield">{{.FileSize}}KB</span>&nbsp;字节</td>
+                        <td><span ref="att.fileSize" class="xfield">{{.CertRecord.FileSize}}KB</span>&nbsp;字节</td>
                     </tr>
                     <tr>
                         <td>认证时间：</td>
-                        <td><span ref="common.attestation_at" class="xfield">{{.CertTime}}</span>&nbsp;</td>
+                        <td><span ref="common.attestation_at" class="xfield">{{.CertRecord.CertTime}}</span>&nbsp;</td>
                     </tr>
                     </tbody>
                 </table>
